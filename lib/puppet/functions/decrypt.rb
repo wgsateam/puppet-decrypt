@@ -3,10 +3,10 @@ require 'puppet-decrypt'
 Puppet::Functions.create_function(:'decrypt') do
   dispatch :main do
     required_param 'Variant[String, Hash]', :value
-    optional_param 'String', :secret_key
+    required_param 'String', :secret_key
   end
 
-  def main
+  def main(value, secret_key)
     options = {}
     decrypt_args = {}
 
