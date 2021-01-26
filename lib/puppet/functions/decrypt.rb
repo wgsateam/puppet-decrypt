@@ -1,6 +1,8 @@
 require 'puppet-decrypt'
 
 Puppet::Functions.create_function(:'decrypt') do
+  $LOAD_PATH.unshift File.expand_path(File.join(File.dirname(f), '..', '..'))
+
   dispatch :main do
     required_param 'Variant[String, Hash]', :value
     required_param 'String', :secret_key
