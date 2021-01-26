@@ -38,13 +38,13 @@ module Puppet
         if match
           value, iv, salt = value.split(':').map{|s| strict_decode64 s }
           if iv && salt
-            value = value.decrypt(:key => secret_key_digest, :iv => iv, :salt => salt)
+            res = Encryptor.decrypt(:value => value, :key => secret_key_digest, :iv => iv, :salt => salt)
           else
             $stderr.puts "Warning: re-encrypt with puppet-crypt to use salted passwords"
-            value = value.decrypt(:key => secret_key_digest)
+            res = Encryptor.decrypt(:key => secret_key_digest)
           end
         end
-        value
+        res
       end
 
       def encrypt(value, secret_key_file, salt, iv)

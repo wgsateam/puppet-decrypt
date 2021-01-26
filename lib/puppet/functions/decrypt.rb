@@ -9,7 +9,9 @@ Puppet::Functions.create_function(:'decrypt') do
   end
 
   def main(value, secret_key)
-    options = {}
+    options = {
+      :algorithm => 'aes-256-cbc'
+    }
     decrypt_args = {}
 
     if value.is_a? String

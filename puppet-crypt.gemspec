@@ -5,7 +5,7 @@ require 'puppet-decrypt/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "puppet-crypt"
-  gem.version       = "0.2.0"
+  gem.version       = "0.3.0"
   gem.authors       = ["mlincoln"]
   gem.email         = ["max@devopsy.com"]
   gem.description   = %q{A gem for encrypting/decrypting secret values for use with Puppet}
