@@ -4,13 +4,13 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'puppet-decrypt/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "puppet-decrypt"
-  gem.version       = Puppet::Decrypt::VERSION
+  gem.name          = "puppet-crypt"
+  gem.version       = "0.2.0"
   gem.authors       = ["mlincoln"]
   gem.email         = ["max@devopsy.com"]
   gem.description   = %q{A gem for encrypting/decrypting secret values for use with Puppet}
   gem.summary       = %q{A shared secret strategy that works with any data source}
-  gem.homepage      = "https://github.com/maxlinc/puppet-decrypt"
+  gem.homepage      = "https://github.com/wgsateam/puppet-decrypt"
   gem.required_ruby_version = '>= 1.8.7'
   notice = """
 
@@ -22,7 +22,7 @@ This was done to more easily support multiple keys.  If you are upgrading from a
 """
   gem.post_install_message = notice
 
-  gem.files         = `git ls-files`.split($/)
+  gem.files         = `git ls-files`.split("\n")
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
